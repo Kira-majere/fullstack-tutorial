@@ -8,6 +8,7 @@ const typeDefs = gql`
   rocket: Rocket
   isBooked: Boolean!
 }
+
 type Rocket {
   id: ID!
   name: String
@@ -44,6 +45,7 @@ type TripUpdateResponse {
   message: String
   launches: [Launch]
 }
+
 `;
 
 module.exports = typeDefs;

@@ -5,7 +5,7 @@ class LaunchAPI extends RESTDataSource {
     super();
     this.baseURL = 'https://api.spacexdata.com/v2/';
   }
-}
+
 
 async getAllLaunches() {
   const response = await this.get('launches');
@@ -41,6 +41,7 @@ launchReducer(launch) {
       type: launch.rocket.rocket_type,
     },
   };
+}
 }
 
 module.exports = LaunchAPI;
