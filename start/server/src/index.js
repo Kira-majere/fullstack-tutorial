@@ -5,7 +5,7 @@ const { createStore } = require('./utils');
 const isEmail = require('isemail');
 const LaunchAPI = require('./datasources/launch');
 const UserAPI = require('./datasources/user');
-
+const port = process.env.PORT || 4000;
 const store = createStore();
 
 const server = new ApolloServer({
@@ -28,6 +28,4 @@ const server = new ApolloServer({
   })
 });
 
-server.listen().then(({ url }) => {
-  console.log(`🚀 Server ready at ${url}`);
-});
+server.listen(port, () => console.log(`url-shortener listening on port ${port}!`));
