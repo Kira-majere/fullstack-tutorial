@@ -3,9 +3,9 @@ import { RouteComponentProps } from '@reach/router';
 
 interface LaunchesProps extends RouteComponentProps {}
 
-const Launches: React.FC<LaunchesProps> = () => {
+const LAUNCH_TILE_DATA: React.FC<LaunchesProps> = () => {
   return <div />;
 }
 
-export default Launches;
+export default LAUNCH_TILE_DATA;
 
