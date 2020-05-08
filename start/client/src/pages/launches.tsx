@@ -29,13 +29,11 @@ export const GET_LAUNCHES = gql`
       hasMore
       launches {
       id
-      mission {
-        name
-      }
-    }
+      rocket {name}
+      },
     }
   }
-  ${LAUNCH_TILE_DATA}
+ 
 `;
 
 interface LaunchesProps extends RouteComponentProps {}

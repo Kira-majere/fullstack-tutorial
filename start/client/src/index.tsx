@@ -14,7 +14,7 @@ import injectStyles from './styles';
 
 const cache = new InMemoryCache();
 const link = new HttpLink({
-  uri: 'http://localhost:4000/'
+  uri: 'https://immense-reaches-97039.herokuapp.com/'
 }
 
 );
