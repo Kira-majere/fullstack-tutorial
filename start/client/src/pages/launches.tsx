@@ -16,24 +16,23 @@ export const LAUNCH_TILE_DATA = gql`
       name
     }
     mission {
-      name
+      
       missionPatch
     }
   }
 `;
 
 export const GET_LAUNCHES = gql`
-  query GetLaunches($after: String) {
+  query GetLaunchList($after: String) {
     launches(after: $after) {
       cursor
       hasMore
       launches {
-      id
-      rocket {name}
-      },
+        ...LaunchTile
+      }
     }
   }
- 
+  ${LAUNCH_TILE_DATA}
 `;
 
 interface LaunchesProps extends RouteComponentProps {}

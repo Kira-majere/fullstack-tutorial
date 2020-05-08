@@ -9,31 +9,31 @@ import React from 'react';
 import ReactDOM from 'react-dom'; 
 import Pages from './pages';
 import injectStyles from './styles';
+import { resolvers, typeDefs } from './resolvers';
 
 
 
 const cache = new InMemoryCache();
-const link = new HttpLink({
-  uri: 'https://immense-reaches-97039.herokuapp.com/'
-}
-
-);
-
-
 
 const client: ApolloClient<NormalizedCacheObject> = new ApolloClient({
   cache,
-  link,
-  
+  link: new HttpLink({
+  uri: 'https://immense-reaches-97039.herokuapp.com/',
+  headers: {
+      authorization: localStorage.getItem('token'),
+    }, 
+  }),
 });
 
-client
-  .query({
-    query: gql`
-      query GetLaunchById { launch(id: 40) { id rocket { id type } } }
-    `
-  })
-  .then(result => console.log(result));
+
+
+cache.writeData({
+  data: {
+    isLoggedIn: !!localStorage.getItem('token'),
+    cartItems: [],
+  },
+});
+
   
   injectStyles();
 ReactDOM.render(

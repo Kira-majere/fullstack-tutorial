@@ -3,13 +3,26 @@ import { useQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 
 import LaunchTile from '../components/launch-tile';
-import LAUNCH_TILE_DATA  from '../pages/launches';
+import {LAUNCH_TILE_DATA}  from '../pages/launches';
 import * as LaunchDetailTypes from '../pages/__generated__/LaunchDetails';
 
 export const GET_LAUNCH = gql`
   query GetLaunch($launchId: ID!) {
     launch(id: $launchId) {
-     LaunchTile
+     ...LaunchTile
+    }
+  }
+ ${LAUNCH_TILE_DATA}
+`;
+
+export const GET_LAUNCH_DETAILS = gql`
+  query LaunchDetails($launchId: ID!) {
+    launch(id: $launchId) {
+      site
+      rocket {
+        type
+      }
+      ...LaunchTile
     }
   }
   ${LAUNCH_TILE_DATA}
