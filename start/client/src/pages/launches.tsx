@@ -16,7 +16,7 @@ export const LAUNCH_TILE_DATA = gql`
       name
     }
     mission {
-      
+      name
       missionPatch
     }
   }

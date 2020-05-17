@@ -22,7 +22,7 @@ type User {
 }
 
 type Mission {
-    # ... with rest of schema
+    name: String
     missionPatch(mission: String, size: PatchSize): String
   }
 
@@ -45,7 +45,7 @@ type Query {
   me: User
 }
 type Mutation {
-  bookTrips(launchIds: [ID]!): TripUpdateResponse!
+  bookTrips(launchIds: [ID]!, cardToken: String): TripUpdateResponse!
   cancelTrip(launchId: ID!): TripUpdateResponse!
   login(email: String): String # login token
 }
@@ -53,6 +53,7 @@ type TripUpdateResponse {
   success: Boolean!
   message: String
   launches: [Launch]
+  paymentStatus: String
 }
 type LaunchConnection { # add this below the Query type as an additional type.
   cursor: String!

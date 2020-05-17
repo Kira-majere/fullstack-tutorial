@@ -30,6 +30,8 @@ const client: ApolloClient<NormalizedCacheObject> = new ApolloClient({
 
 
 
+
+
 cache.writeData({
   data: {
     isLoggedIn: !!localStorage.getItem('token'),
@@ -49,6 +51,9 @@ function IsLoggedIn() {
 }
 
 injectStyles();
+
+
+
 ReactDOM.render(
 
   <ApolloProvider client={client}>
